@@ -1,0 +1,72 @@
+/* ============================= */
+/* Custom Link Styling */
+/* ============================= */
+
+/* Unvisited link */
+a:link {
+    color: #004080; /* Council blue */
+    text-decoration: none;
+}
+
+/* Visited link */
+a:visited {
+    color: #660066; /* Purple for visited links */
+}
+
+/* Hover effect */
+a:hover {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+/* Active (on click) */
+a:active {
+    color: #cc0000;
+}
+/* ============================= */
+/* Navigation Menu Styling */
+/* ============================= */
+
+nav ul {
+    list-style-type: none; /* Remove bullets */
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Space between nav items */
+}
+
+nav ul li {
+    padding: 10px 15px;
+}
+
+/* ============================= */
+/* Standard List Styling */
+/* ============================= */
+
+ul.standard-list {
+    list-style-type: square;         /* Custom bullet shape */
+    list-style-position: outside;    /* Bullets outside the content box */
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+ul.standard-list li {
+    margin-bottom: 10px;             /* Space between list items */
+    padding-left: 5px;
+}
+<!-- Navigation Menu -->
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Standard List -->
+<ul class="standard-list">
+    <li>Expand green spaces</li>
+    <li>Improve road safety</li>
+    <li>Upgrade public transport</li>
+</ul>

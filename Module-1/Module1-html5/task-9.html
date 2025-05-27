@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Nearby Events</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #eef2f5;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #333;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Find Nearby Events</h2>
+  <button onclick="findLocation()">Find Nearby Events</button>
+
+  <div id="output"></div>
+
+  <script>
+    function findLocation() {
+      const output = document.getElementById("output");
+
+      if (!navigator.geolocation) {
+        output.textContent = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      output.textContent = "Locating...";
+
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const lat = position.coords.latitude.toFixed(5);
+          const lon = position.coords.longitude.toFixed(5);
+          output.textContent = `📍 Your location:\nLatitude: ${lat}\nLongitude: ${lon}`;
+        },
+        error => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              output.textContent = "❌ Permission denied. Please allow location access.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              output.textContent = "❌ Location information is unavailable.";
+              break;
+            case error.TIMEOUT:
+              output.textContent = "⏳ The request timed out. Please try again.";
+              break;
+            default:
+              output.textContent = "❌ An unknown error occurred.";
+          }
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    }
+  </script>
+
+</body>
+</html>

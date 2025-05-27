@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Promo Video</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+
+    #videoMessage {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    video {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      margin-top: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>You're Invited to Our Upcoming Event!</h2>
+
+  <!-- Promo Video -->
+  <video id="promoVideo" controls oncanplay="showReadyMessage()">
+    <source src="promo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div id="videoMessage"></div>
+
+  <!-- Simple Form -->
+  <form id="rsvpForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required />
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" rows="4"></textarea>
+
+    <button type="submit">Submit RSVP</button>
+  </form>
+
+  <script>
+    let formSubmitted = false;
+
+    // Show message when video is ready to play
+    function showReadyMessage() {
+      document.getElementById("videoMessage").textContent = "🎉 Video ready to play!";
+    }
+
+    // Track if form was submitted
+    document.getElementById("rsvpForm").addEventListener("submit", function (e) {
+      formSubmitted = true;
+      alert("Thank you for your RSVP!");
+      this.reset();
+    });
+
+    // Warn if user tries to leave without submitting
+    window.onbeforeunload = function () {
+      if (!formSubmitted) {
+        return "You have not submitted your RSVP. Are you sure you want to leave?";
+      }
+    };
+  </script>
+
+</body>
+</html>
+``

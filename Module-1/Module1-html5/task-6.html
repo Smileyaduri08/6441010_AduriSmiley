@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Feedback</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #eventImage {
+      display: block;
+      margin: 20px auto;
+      width: 200px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .enlarged {
+      transform: scale(1.5);
+    }
+
+    .charCount {
+      font-size: 0.9em;
+      color: #555;
+      text-align: right;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #feeDisplay, #submitMsg {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Event Feedback Form</h2>
+
+  <form id="feedbackForm">
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" placeholder="Enter 10-digit number" onblur="validatePhone()" required />
+    <span id="phoneError" class="error"></span>
+
+    <label for="eventSelect">Select Event:</label>
+    <select id="eventSelect" onchange="showFee()">
+      <option value="">--Choose an Event--</option>
+      <option value="50">Workshop - $50</option>
+      <option value="30">Seminar - $30</option>
+      <option value="20">Meetup - $20</option>
+    </select>
+    <div id="feeDisplay"></div>
+
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" rows="4" placeholder="Type your feedback..." onkeyup="countChars()"></textarea>
+    <div class="charCount" id="charCount">0 characters</div>
+
+    <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+    <div id="submitMsg"></div>
+  </form>
+
+  <img src="event.jpg" alt="Event Photo" id="eventImage" ondblclick="toggleImageSize()" title="Double-click to enlarge" />
+
+  <script>
+    function validatePhone() {
+      const phone = document.getElementById("phone").value;
+      const error = document.getElementById("phoneError");
+      const phoneRegex = /^\d{10}$/;
+
+      if (!phoneRegex.test(phone)) {
+        error.textContent = "Please enter a valid 10-digit phone number.";
+      } else {
+        error.textContent = "";
+      }
+    }
+
+    function showFee() {
+      const fee = document.getElementById("eventSelect").value;
+      const display = document.getElementById("feeDisplay");
+      if (fee) {
+        display.textContent = `Event Fee: $${fee}`;
+      } else {
+        display.textContent = "";
+      }
+    }
+
+    function submitFeedback() {
+      document.getElementById("submitMsg").textContent =
+        "Thank you! Your feedback has been submitted.";
+    }
+
+    function toggleImageSize() {
+      const image = document.getElementById("eventImage");
+      image.classList.toggle("enlarged");
+    }
+
+    function countChars() {
+      const feedback = document.getElementById("feedback").value;
+      document.getElementById("charCount").textContent = `${feedback.length} characters`;
+    }
+  </script>
+
+</body>
+</html>

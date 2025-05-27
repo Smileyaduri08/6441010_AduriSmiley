@@ -1,0 +1,80 @@
+/* ============================= */
+/* Navigation Menu - Desktop */
+/* ============================= */
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    font-size: 1.2vw;         /* Scales with viewport width */
+    padding: 10px 15px;
+}
+
+/* Images and sections */
+img {
+    max-width: 100%;          /* Responsive image scaling */
+    height: auto;
+}
+
+.section {
+    padding: 5vh 10vw;        /* Flexible vertical/horizontal spacing */
+    font-size: 1.2rem;
+}
+/* ============================= */
+/* Media Query: Small Screens */
+/* ============================= */
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;   /* Stack nav links vertically */
+        align-items: center;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 8px 10px;
+    }
+
+    .section {
+        padding: 4vh 5vw;
+        font-size: 1rem;
+    }
+
+    img {
+        width: 90%;
+    }
+}
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="section">
+    <h2>Welcome to the City Portal</h2>
+    <p>Get involved in local government, find upcoming events, and access community resources.</p>
+    <img src="community.jpg" alt="Community Event">
+</section>
+/* Responsive layout using Flexbox */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card {
+    flex: 1 1 45%;    /* Grow/shrink to fit */
+    min-width: 280px;
+    padding: 20px;
+    background-color: #f2f2f2;
+}

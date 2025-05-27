@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Save Event Preferences</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Select Your Preferred Event</h2>
+
+    <label for="eventSelect">Event Type:</label>
+    <select id="eventSelect">
+      <option value="">--Choose an Event--</option>
+      <option value="Workshop">Workshop</option>
+      <option value="Seminar">Seminar</option>
+      <option value="Meetup">Meetup</option>
+    </select>
+
+    <button onclick="clearPreferences()">Clear Preferences</button>
+    <div class="message" id="messageArea"></div>
+  </div>
+
+  <script>
+    const select = document.getElementById("eventSelect");
+    const message = document.getElementById("messageArea");
+
+    // Load preference on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedEvent = localStorage.getItem("preferredEvent");
+      if (savedEvent) {
+        select.value = savedEvent;
+        message.textContent = `Welcome back! Your preferred event "${savedEvent}" is selected.`;
+      }
+    });
+
+    // Save to localStorage when selection changes
+    select.addEventListener("change", () => {
+      const selected = select.value;
+      if (selected) {
+        localStorage.setItem("preferredEvent", selected);
+        sessionStorage.setItem("tempData", "someSessionValue"); // for demo
+        message.textContent = `Preference "${selected}" saved!`;
+      } else {
+        message.textContent = "";
+      }
+    });
+
+    // Clear both localStorage and sessionStorage
+    function clearPreferences() {
+      localStorage.removeItem("preferredEvent");
+      sessionStorage.clear();
+      select.value = "";
+      message.textContent = "Preferences have been cleared.";
+    }
+  </script>
+
+</body>
+</html>

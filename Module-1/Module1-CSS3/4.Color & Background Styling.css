@@ -1,0 +1,57 @@
+/* ============================= */
+/* Global Body Styling */
+/* ============================= */
+
+/* Use a fallback color and background image */
+body {
+    background-color: #f2f2f2; /* Fallback color (light gray) */
+    background-image: url('images/cityscape.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgba(20, 20, 20, 0.9); /* Slightly transparent dark text */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ============================= */
+/* Text Color with HEX */
+/* ============================= */
+
+h1 {
+    color: #004080; /* Dark blue for council branding */
+}
+
+/* ============================= */
+/* Section Header with Gradient Background */
+/* ============================= */
+
+.section-header {
+    background: linear-gradient(to right, #004080, #66aaff); /* Gradient from dark to light blue */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* ============================= */
+/* Paragraph Styling with RGBA */
+/* ============================= */
+
+p {
+    color: rgba(0, 0, 0, 0.8); /* Slight transparency for better readability */
+    font-size: 16px;
+    line-height: 1.6;
+}
+<body>
+    <h1>City Council Portal</h1>
+
+    <div class="section-header">
+        <h2>Upcoming Initiatives</h2>
+    </div>
+
+    <p>
+        The council is working on several community-focused programs this quarter,
+        including infrastructure upgrades and environmental initiatives.
+    </p>
+</body>

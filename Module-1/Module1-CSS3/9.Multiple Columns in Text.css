@@ -1,0 +1,28 @@
+/* ============================= */
+/* Community Bulletin Styling */
+/* ============================= */
+
+.news-article {
+    column-count: 2;                  /* Split into 2 columns */
+    column-gap: 30px;                 /* Space between columns */
+    column-rule: 1px solid gray;      /* Line between columns */
+    
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+<section class="news-article">
+    <h2>Community Bulletin – June 2025</h2>
+    <p>
+        The City Council is pleased to announce several upcoming events aimed at improving neighborhood engagement. This summer, we'll launch public clean-up initiatives, outdoor concerts, and workshops focused on sustainability.
+    </p>
+    <p>
+        Residents are encouraged to participate in the Town Hall scheduled for June 15. Feedback from the public will be incorporated into next quarter’s development plans. Visit our website or local library for printed schedules.
+    </p>
+</section>

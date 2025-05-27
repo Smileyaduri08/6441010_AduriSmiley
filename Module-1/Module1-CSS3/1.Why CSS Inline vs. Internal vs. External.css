@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Methods Example</title>
+
+    <!-- Internal CSS -->
+    <style>
+        /* Body styles */
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+        }
+    </style>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Inline style: Make this heading red -->
+    <h1 style="color: red;">This heading is red (Inline CSS)</h1>
+
+    <h2 class="header">This is a header styled externally</h2>
+    <p class="paragraph">This paragraph is styled externally.</p>
+
+</body>
+</html>
+/* Header styles */
+.header {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: navy;
+}
+
+/* Paragraph styles */
+.paragraph {
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.5;
+}

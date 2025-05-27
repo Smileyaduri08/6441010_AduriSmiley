@@ -1,0 +1,42 @@
+/* ============================= */
+/* Event Card Spacing */
+/* ============================= */
+
+.eventCard {
+    border: 1px solid #cccccc;
+    padding: 20px;              /* Space inside the box */
+    margin: 20px 0;             /* Space outside the box */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+/* ============================= */
+/* Highlight Selected Form Fields */
+/* ============================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #007BFF;       /* Bright blue highlight */
+    outline-offset: 2px;
+}
+.hidden-example {
+    visibility: hidden;
+}
+
+.none-example {
+    display: none;
+}
+<div class="eventCard">
+    <h3>Public Forum</h3>
+    <p>Date: July 3, 2025</p>
+</div>
+
+<form>
+    <input type="text" placeholder="Name" />
+    <select>
+        <option>Select Event</option>
+    </select>
+</form>
+
+<p class="hidden-example">This is hidden (still takes space).</p>
+<p class="none-example">This is gone (no space taken).</p>

@@ -1,0 +1,53 @@
+<!-- In your HTML head -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@1,400&display=swap');
+/* ============================= */
+/* Typography Styling */
+/* ============================= */
+
+/* Base body text */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* Main headings */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* Subheadings */
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #004080;
+}
+
+/* Description text (paragraphs) */
+.description {
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: justify;
+    letter-spacing: 0.5px;
+    font-style: normal;
+    font-weight: 400;
+}
+<body>
+    <h1>City Council News</h1>
+    <h2>Community Update</h2>
+    <h3>Infrastructure Projects</h3>
+    
+    <p class="description">
+        The city is launching multiple infrastructure improvements this year, focusing on road safety, green spaces, and better public transport access.
+    </p>
+</body>
